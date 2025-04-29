@@ -1,0 +1,11 @@
+.app_container{
+    height: 100vh;
+    background-color: #424141;
+    box-shadow: inset 0px 0px 40px #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bold;
+}

@@ -1,11 +1,138 @@
 .app_container{
     height: 100vh;
     background-color: #424141;
-    box-shadow: inset 0px 0px 40px #fff;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 30px;
-    font-weight: bold;
+    box-shadow: inset 0px 0px 40px #fff;
+   
 }
+    .app_esquerda{
+        height: 100%;
+        width: 32%;
+        background-color: transparent;
+        background-image: url('/public/background-left.png');
+        background-repeat: space;
+        background-size: 400px 400px;
+        background-position: center;
+    }
+    .app_centro{
+        height: 100%;
+        width: 36%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: transparent;
+        box-shadow: inset 0px 0px 40px #fff;
+    }
+        .app_header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            width: 100%;
+            background-color: transparent;
+            color: #fff;
+            font-family: cursive;
+            text-shadow: 1px 11px 2px rgb(7, 7, 7);;
+        }
+        .app_main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 75%;
+            width: 100%;
+            background-color: transparent;
+        }
+            .app_main-header{
+                height: 10%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: transparent;
+                padding: 20px;
+                box-shadow: inset 0px 0px 40px #fff;
+                color: #fff;
+            }
+                .app_main-header_text{
+                    font-size: 15px;
+                    font-weight: bolder;
+                    font-family: cursive;
+                }
+            .app_main-body{
+                height: 90%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: transparent;
+            }
+                .app_main-body_images{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 60%;
+                    width: 100%;
+                    background-color: transparent;
+                }
+                    .app_main-body_images-box{
+                        height: 300px;
+                        width: 300px;
+                        background-color: transparent;
+                        border-radius: 10px;
+                        box-shadow: inset 0px 0px 40px #fff;
+                    }
+                .app_main-body_button{
+                    height: 40%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    background-color: transparent;
+                }
+                    .botoes{
+                        height: 50px;
+                        width: 250px;
+                        margin: 30px;
+                        color: #424141;
+                        font-size: 20px;
+                        font-family: cursive;
+                        font-weight: bolder;
+                        border: none;
+                        border-radius: 15px;
+                        cursor: pointer;
+                    }
+                        .botoes:hover{
+                            background-color: transparent;
+                            box-shadow: inset 0px 0px 40px #fff;
+                            color: #fff;
+                            font-size: 30px;
+                            height: 60px;
+                            width: 260px;
+                            transition: 0.5s;
+                        }
+
+        .app_footer{
+            height: 5%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            background-color: transparent;
+            padding-bottom: 10px;
+            color: #fff;
+            font-family: cursive;
+        }
+
+    .app_direita{
+        height: 100%;
+        width: 32%;
+        background-color: transparent;
+        background-image: url('/public/background-right.png');
+        background-repeat: repeat-y;
+        background-size: 300px 300px;
+        background-position: center;
+    }

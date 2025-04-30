@@ -1,0 +1,91 @@
+import React, { useState, useEffect, useRef } from "react";
+
+export default function TamagotchiGame() {
+  const [fome, setFome] = useState(100);
+  const [energia, setEnergia] = useState(100);
+  const [felicidade, setFelicidade] = useState(100);
+  const [higiene, setHigiene] = useState(100);
+  const [morreu, setMorreu] = useState(false);
+
+  const temposEmZero = useRef({ fome: 0, energia: 0, felicidade: 0, higiene: 0 });
+
+  const efeitos = {
+    alimentar: { fome: +20, energia: -5 },
+    banho: { higiene: +25, felicidade: -5 },
+    brincar: { felicidade: +15, energia: -10, fome: -5 },
+    dormir: { energia: +30, fome: -10, higiene: -5 },
+  };
+
+  const aplicarEfeitos = (acao) => {
+    const efeito = efeitos[acao];
+    if (!efeito || morreu) return;
+
+    setFome((f) => Math.min(Math.max(f + (efeito.fome || 0), 0), 100));
+    setEnergia((e) => Math.min(Math.max(e + (efeito.energia || 0), 0), 100));
+    setFelicidade((f) => Math.min(Math.max(f + (efeito.felicidade || 0), 0), 100));
+    setHigiene((h) => Math.min(Math.max(h + (efeito.higiene || 0), 0), 100));
+  };
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setFome((f) => Math.max(f - 1, 0));
+      setEnergia((e) => Math.max(e - 1, 0));
+      setFelicidade((f) => Math.max(f - 1, 0));
+      setHigiene((h) => Math.max(h - 1, 0));
+
+      // Verifica tempo em 0
+      ["fome", "energia", "felicidade", "higiene"].forEach((atributo) => {
+        const valor = eval(atributo);
+        if (valor === 0) temposEmZero.current[atributo] += 1;
+        else temposEmZero.current[atributo] = 0;
+      });
+
+      const tempoLimite = 30; // segundos
+      const morreuPorTempo = Object.values(temposEmZero.current).some((t) => t >= tempoLimite);
+      const zerados = [fome, energia, felicidade, higiene].filter((v) => v === 0).length;
+
+      if (morreuPorTempo || zerados >= 2) {
+        setMorreu(true);
+        clearInterval(intervalo);
+      }
+    }, 1000);
+
+    return () => clearInterval(intervalo);
+  }, [fome, energia, felicidade, higiene]);
+
+  const resetar = () => {
+    setFome(100);
+    setEnergia(100);
+    setFelicidade(100);
+    setHigiene(100);
+    setMorreu(false);
+    temposEmZero.current = { fome: 0, energia: 0, felicidade: 0, higiene: 0 };
+  };
+
+  return (
+    <div className="p-4 max-w-md mx-auto bg-white shadow rounded-xl">
+      <h1 className="text-2xl font-bold text-center mb-4">🐣 Tamagotchi</h1>
+      {morreu ? (
+        <div className="text-center">
+          <p className="text-red-500 text-lg font-semibold">Seu bichinho morreu 😢</p>
+          <button onClick={resetar} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Recomeçar</button>
+        </div>
+      ) : (
+        <>
+          <div className="space-y-2">
+            <p>🍔 Fome: {fome}</p>
+            <p>🧠 Energia: {energia}</p>
+            <p>😄 Felicidade: {felicidade}</p>
+            <p>🛁 Higiene: {higiene}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 mt-4">
+            <button onClick={() => aplicarEfeitos("alimentar")} className="bg-green-500 text-white py-2 rounded">Alimentar</button>
+            <button onClick={() => aplicarEfeitos("banho")} className="bg-blue-400 text-white py-2 rounded">Dar banho</button>
+            <button onClick={() => aplicarEfeitos("brincar")} className="bg-yellow-400 text-white py-2 rounded">Brincar</button>
+            <button onClick={() => aplicarEfeitos("dormir")} className="bg-purple-500 text-white py-2 rounded">Dormir</button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

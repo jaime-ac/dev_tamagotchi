@@ -7,7 +7,7 @@
 }
     .app_esquerda{
         height: 100%;
-        width: 32%;
+        width: 35%;
         background-color: transparent;
         background-image: url('/public/background-left.png');
         background-repeat: space;
@@ -16,7 +16,7 @@
     }
     .app_centro{
         height: 100%;
-        width: 36%;
+        width: 30%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -45,23 +45,75 @@
             background-color: transparent;
         }
             .app_main-header{
-                height: 10%;
+                height: 20%;
                 width: 100%;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: transparent;
-                padding: 20px;
-                box-shadow: inset 0px 0px 40px #fff;
+                box-shadow: inset 0px 0px 20px #fff;
                 color: #fff;
             }
                 .app_main-header_text{
-                    font-size: 15px;
+                    font-size: 20px;
                     font-weight: bolder;
                     font-family: cursive;
                 }
+                .app_main-header_left{
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    width: 50%;
+                    background-color: transparent;
+                }
+                    .app_main-header_left-top{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 10px;
+                        height: 50%;
+                        width: 100%;
+                        background-color: transparent;
+                        box-shadow: inset 0px 0px 10px #fff;
+                    }
+                    .app_main-header_left-bottom{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 10px;
+                        height: 50%;
+                        width: 100%;
+                        background-color: transparent;
+                        box-shadow: inset 0px 0px 10px #fff;
+                    }
+                    
+                .app_main-header_right{
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    width: 50%;
+                    background-color: transparent;
+                }
+                    .app_main-header_right-top{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 10px;
+                        height: 50%;
+                        width: 100%;
+                        background-color: transparent;
+                        box-shadow: inset 0px 0px 10px #fff;
+                    }
+                    .app_main-header_right-bottom{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-left: 10px;
+                        height: 50%;
+                        width: 100%;
+                        background-color: transparent;
+                        box-shadow: inset 0px 0px 10px #fff;
+                    }
+
             .app_main-body{
-                height: 90%;
+                height: 80%;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -78,8 +130,8 @@
                     background-color: transparent;
                 }
                     .app_main-body_images-box{
-                        height: 300px;
-                        width: 300px;
+                        height: 250px;
+                        width: 250px;
                         background-color: transparent;
                         border-radius: 10px;
                         box-shadow: inset 0px 0px 40px #fff;
@@ -95,8 +147,8 @@
                 }
                     .botoes{
                         height: 50px;
-                        width: 250px;
-                        margin: 30px;
+                        width: 200px;
+                        margin: 20px;
                         color: #424141;
                         font-size: 20px;
                         font-family: cursive;
@@ -111,7 +163,7 @@
                             color: #fff;
                             font-size: 30px;
                             height: 60px;
-                            width: 260px;
+                            width: 220px;
                             transition: 0.5s;
                         }
 
@@ -129,7 +181,7 @@
 
     .app_direita{
         height: 100%;
-        width: 32%;
+        width: 35%;
         background-color: transparent;
         background-image: url('/public/background-right.png');
         background-repeat: repeat-y;
